@@ -99,11 +99,3 @@ python noise_reducer.py
 ```
 
 The script will display a progress bar, skip already processed files, and save the clean output to `data/raw_noise_reduced`.
-
-## ✅ Next Steps (ASR Data Preparation)
-
-Once you have your clean audio files in the output directory, your next step is to perform segmentation and create the final dataset for Whisper fine-tuning:
-
-1.  **Segmentation**: Run your separate **VAD-based segmentation script**, ensuring the input directory is set to `data/raw_noise_reduced`. This creates the short, clean audio/transcript pairs.
-    
-2.  **Dataset Creation**: Use the generated segmented files to construct the Hugging Face `Dataset` object, which is the required format for starting the Whisper training process.
