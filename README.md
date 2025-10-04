@@ -50,35 +50,6 @@ project-sgk/
 
 ```
 
-### 3. Git Exclusion (`.gitignore`)
-
-It is vital to exclude large model files and caches from Git history. Create a file named `.gitignore` in the project root and add the following contents:
-
-```
-# --- Virtual Environments ---
-venv/
-.venv/
-# Add your Conda environment name here if applicable (e.g., asr_env/)
-
-# --- Data and Logs ---
-data/
-logs/
-__pycache__/
-
-# --- PyTorch & Hugging Face Caches ---
-# PyTorch Hub cache (where Denoiser model weights are downloaded)
-.cache/
-.pt_ext/
-.ipynb_checkpoints/
-*.pth
-*.pt
-
-# --- MacOS/Windows Specific Files ---
-.DS_Store
-Thumbs.db
-
-```
-
 ## 🚀 Usage Guide
 
 ### 0. Data Acquisition (Download)
