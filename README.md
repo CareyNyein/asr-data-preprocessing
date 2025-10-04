@@ -52,7 +52,7 @@ project-sgk/
 
 ## 🚀 Usage Guide
 
-### 0. Data Acquisition (Download)
+### Data Acquisition (Download)
 
 _This step is optional if you have you own audio files. The provided script is an example tailored to specific data needs and may require modification._
 
