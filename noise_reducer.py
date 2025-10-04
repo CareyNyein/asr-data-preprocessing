@@ -92,6 +92,8 @@ def clean_audio_file(input_path: Path, output_path: Path):
 
                 # Denoiser call
                 enhanced_source = enhance_model(chunk_batch)
+                # feel free to tweak as follow. 
+                # enhanced_source = enhance_model(chunk_batch, noise_gain_db=NOISE_GAIN_DB)
                 
                 # --- Preparation for Concatenation ---
                 enhanced_chunk_padded = enhanced_source.squeeze(0)
