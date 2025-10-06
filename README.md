@@ -56,11 +56,39 @@ project-sgk/
     └── segmented_data/         <-- Output: Final Chunks & Catalog CSV
 
 ```
+
+### 3. Git Exclusion (`.gitignore`)
+
+It is vital to exclude large model files and caches from Git history. Create a file named `.gitignore` in the project root and add the following contents:
+
+```
+# --- Virtual Environments ---
+venv/
+.venv/
+# Add your Conda environment name here if applicable (e.g., asr_env/)
+
+# --- Data and Logs ---
+data/
+logs/
+__pycache__/
+
+# --- PyTorch & Hugging Face Caches ---
+# PyTorch Hub cache (where Denoiser model weights are downloaded)
+.cache/
+.pt_ext/
+.ipynb_checkpoints/
+*.pth
+*.pt
+
+# --- MacOS/Windows Specific Files ---
+.DS_Store
+Thumbs.db
+
 ```
 
 ## 🚀 Usage Guide
 
-### Data Acquisition (Download)
+### 0. Data Acquisition (Download)
 
 _This step is optional if you have you own audio files. The provided script is an example tailored to specific data needs and may require modification._
 
@@ -79,7 +107,7 @@ python download_audio.py
 
 ```
 
-### Audio Enhancement (Noise Reduction)
+### 1. Audio Enhancement (Noise Reduction)
 
 Use this script to clean all files in your input folder (`data/raw_noise_unprocessed`) and save the output to `data/raw_noise_reduced`.
 
@@ -98,11 +126,11 @@ python noise_reducer.py
 
 ```
 
-### ASR Data Segmentation and Cataloging
+### 2. ASR Data Segmentation and Cataloging
 
 This script processes the **cleaned audio files**, performs VAD to find speech segments, pairs them with text chunks, and generates the final files ready for manual correction and model training.
 
-**Input Directory:**  `data/to_be_segmented/`  **Output Directory:**  `data/segmented_data/`
+**Input Directory:**  `data/raw_noise_reduced/`  **Output Directory:**  `data/segmented_data/`
 
 **Output Files:** The script creates individual `.wav` and `.txt` files, and a crucial master catalog: `data/segmented_data/segmented_data_catalog.csv`. This CSV contains `[audio_id, text]` pairs, which you will use for manual review and correction before fine-tuning Whisper.
 
