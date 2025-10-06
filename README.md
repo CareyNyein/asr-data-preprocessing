@@ -44,7 +44,7 @@ pip install -r requirements.txt
 Organize your raw data into the specified directories:
 
 ```
-project-sgk/
+asr-data-preprocessing/
 ├── .env                  # Environment variables for download script
 ├── .gitignore            # Git exclusion file (NEW)
 ├── noise_reducer.py      # The primary batch processing script.
