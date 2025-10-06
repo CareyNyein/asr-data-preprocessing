@@ -36,6 +36,7 @@ OR
 
 pip install -r requirements.txt
 
+
 ```
 
 ### 2. Project Structure
@@ -55,34 +56,6 @@ project-sgk/
     ├── to_be_segmented/        <-- Cleaned Audio Files & Transcripts (Input for Step 2)
     └── segmented_data/         <-- Output: Final Chunks & Catalog CSV
 
-```
-
-### 3. Git Exclusion (`.gitignore`)
-
-It is vital to exclude large model files and caches from Git history. Create a file named `.gitignore` in the project root and add the following contents:
-
-```
-# --- Virtual Environments ---
-venv/
-.venv/
-# Add your Conda environment name here if applicable (e.g., asr_env/)
-
-# --- Data and Logs ---
-data/
-logs/
-__pycache__/
-
-# --- PyTorch & Hugging Face Caches ---
-# PyTorch Hub cache (where Denoiser model weights are downloaded)
-.cache/
-.pt_ext/
-.ipynb_checkpoints/
-*.pth
-*.pt
-
-# --- MacOS/Windows Specific Files ---
-.DS_Store
-Thumbs.db
 
 ```
 
@@ -98,12 +71,14 @@ _This step is optional if you have you own audio files. The provided script is a
 # .env file content
 AUDIO_BASE_URL="[http://your-remote-server.com/](http://your-remote-server.com/)_{date}.mp3"
 
+
 ```
 
 **Execution:**
 
 ```
 python download_audio.py
+
 
 ```
 
@@ -123,6 +98,7 @@ The reduction level is controlled by the `NOISE_GAIN_DB` variable inside `noise_
 ```
 # Run the batch enhancement script:
 python noise_reducer.py
+
 
 ```
 
